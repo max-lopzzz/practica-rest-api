@@ -37,7 +37,7 @@ Las contraseñas se guardan cifradas (scrypt + salt), nunca en texto plano.
 ## Ejemplos con curl
 
 ```bash
-curl http://localhost:3000/ping
-curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"nombre":"Ana","email":"ana@test.com","password":"1234"}'
-curl -X POST http://localhost:3000/login -H "Content-Type: application/json" -d '{"email":"ana@test.com","password":"1234"}'
+curl http://localhost:4000/ping
+curl -X POST http://localhost:4000/users -H "Content-Type: application/json" -d '{"nombre":"Ana","email":"ana@test.com","password":"1234"}'
+curl -X POST http://localhost:4000/login -H "Content-Type: application/json" -d '{"email":"ana@test.com","password":"1234"}'
 ```
