@@ -1,0 +1,16 @@
+IF DB_ID('practica_api') IS NULL
+  CREATE DATABASE practica_api;
+GO
+
+USE practica_api;
+GO
+
+IF OBJECT_ID('dbo.users', 'U') IS NULL
+CREATE TABLE users (
+  id INT IDENTITY(1,1) PRIMARY KEY,
+  nombre NVARCHAR(100) NOT NULL,
+  email NVARCHAR(150) NOT NULL UNIQUE,
+  password NVARCHAR(255) NOT NULL,
+  created_at DATETIME2 NOT NULL DEFAULT SYSDATETIME()
+);
+GO
