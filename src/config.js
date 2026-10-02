@@ -3,6 +3,8 @@ config();
 
 export default {
   port: process.env.PORT || 4000,
+  // Orígenes del frontend con permiso para llamar a la API (separados por coma)
+  corsOrigin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(",") : "*",
   db: {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,

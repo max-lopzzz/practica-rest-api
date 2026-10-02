@@ -1,5 +1,7 @@
 # Práctica REST-API (Node.js + Express + SQL Server)
 
+Frontend que consume esta API: https://github.com/max-lopzzz/Actividad---Pr-ctica-con-HTML
+
 ## Instalación
 
 ```bash
@@ -31,8 +33,14 @@ npm start     # sin nodemon
 | PUT    | `/users/:id` | Actualiza usuario (campos opcionales) |
 | DELETE | `/users/:id` | Elimina usuario                     |
 | POST   | `/login`     | Inicia sesión `{email, password}`   |
+| GET    | `/contactos` | Lista los formularios de contacto   |
+| POST   | `/contactos` | Guarda el formulario `{metodo, email, telefono, pais, region}` |
 
 Las contraseñas se guardan cifradas (scrypt + salt), nunca en texto plano.
+
+## CORS
+
+La API acepta peticiones del frontend desde cualquier origen. Para limitarlo, pon los orígenes en `CORS_ORIGIN` del `.env`, separados por coma (p. ej. `CORS_ORIGIN=http://localhost:5500,https://max-lopzzz.github.io`).
 
 ## Ejemplos con curl
 

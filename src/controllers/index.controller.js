@@ -1,7 +1,7 @@
 export const home = (req, res) => {
   res.json({
     message: "Bienvenido a la REST-API",
-    routes: ["/", "/marco", "/ping", "/users", "/login"],
+    routes: ["/", "/marco", "/ping", "/users", "/login", "/contactos"],
   });
 };
 
