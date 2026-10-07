@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "hash-demo": "node scripts/hash-demo.js",
+    "migrar-passwords": "node scripts/migrar-passwords.js"
   },
   "keywords": [],
   "author": "",

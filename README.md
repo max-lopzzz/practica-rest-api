@@ -36,7 +36,22 @@ npm start     # sin nodemon
 | GET    | `/contactos` | Lista los formularios de contacto   |
 | POST   | `/contactos` | Guarda el formulario `{metodo, email, telefono, pais, region}` |
 
-Las contraseñas se guardan cifradas (scrypt + salt), nunca en texto plano.
+## Contraseñas seguras (módulo `crypto` de Node.js)
+
+Las contraseñas nunca se guardan en texto plano. El método está en [src/utils/password.js](src/utils/password.js):
+
+1. **Pimienta (pepper):** HMAC-SHA256 con `PASSWORD_PEPPER`, un secreto que vive en el `.env` y no en la BDD.
+2. **Sal (salt):** 16 bytes aleatorios diferentes para cada contraseña.
+3. **scrypt:** función lenta a propósito para dificultar los ataques de fuerza bruta.
+
+En la BDD se guarda `salt:hash`. Para el login se repite el proceso con la sal guardada y se compara con `timingSafeEqual`.
+
+```bash
+npm run hash-demo          # prueba: mismo texto = mismo hash, cambio mínimo = hash muy distinto
+npm run migrar-passwords   # convierte a hash las contraseñas que estén en texto plano en la BDD
+```
+
+> `PASSWORD_PEPPER` es obligatoria. Si la cambias, las contraseñas guardadas dejan de coincidir.
 
 ## CORS
 
